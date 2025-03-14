@@ -157,11 +157,11 @@ best.
 ||
 ||
 
-<img src="./3khz5nnb.png" style="width:6.5in;height:4.30208in" />
+<img src="./feat_importance.png" style="width:6.5in;height:4.30208in" />
 
 I also created the confusion matrix for the linear model as shown below
 
-<img src="./0y3bxabd.png" style="width:6.5in;height:4.98958in" />
+<img src="./conf_matrix.png" style="width:6.5in;height:4.98958in" />
 
 One can see that while the linear model is about 76.1% accurate, there
 are quite a few false positives and false negatives.
