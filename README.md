@@ -30,13 +30,17 @@ terms of techniques, I used the following modeling approaches
 ● Ridge()<br>
 ● SVR()<br>
 ● Neural Network<br>
-● Convolutional Neural Network<br>
 
 to create a model that will enable us to predict the proclivity of a
 patient to getting sepsis using a subset of the Kaggle dataset features.
 This question is important because it could help doctors predict the
 likelihood of a patient(s) getting sepsis so they can proactively focus
 on improving outcomes.
+
+I tried using a convolutional neural network as well to build a model
+but the model failed to complete its run.  This makes some sense given 
+the fact that CNNs traiditionally excel with image data or data that 
+has a grid-like structure and the sepsis dataset is neither.
 
 **Data Understanding**
 
@@ -86,9 +90,13 @@ Once I had a solid understanding of the underlying dataset and had
 encoded the applicable target field, I went about building the different
 models, namely Linear Regression, K Nearest Neighbor, Decision Trees,
 Ridge, Support Vector Machines (‘rbf’, ‘linear’, and ‘sigmoid’), neural 
-network with various topologies, and a convolutional neural network. For
-each run, I used the training data set in conjunction with GridSearchCV
-to find the optimal parameters and stored in 3 dictionaries
+network with various hidden node setup and activations, and a 
+convolutional neural network. 
+
+***GridSearchCV Run***<br>
+For the Linear Regression, K Nearest Neighbor, Decision Trees, Ridge, and 
+Support Vector Machines run, I used the training data set in conjunction 
+with GridSearchCV to find the optimal parameters and stored in 4 dictionaries.
 
 ● the mean squared error as computed using the test set and prediction
 from the **best_estimator\_** *(Please* *note* *I* *had* *to* *round*
@@ -100,38 +108,51 @@ from the **best_estimator\_** *(Please* *note* *I* *had* *to* *round*
 
 ● the accuracy (*Please* *note* *I* *had* *to* *round* *up/down* *the*
 *probabilities* *to* *get* *a* *binary* *0* *or* *1* *value)* in the
-**results_accuracy_grid** dictionary<br>
+**training_results_accuracy_grid** and the **test_results_accuracy_grid**
+dictionary<br>
 
 After completing the GridSearch, I then did a subsequent run with the
 optimal parameter(s) for each model to measure the importance of each
 feature to the model.
 
+***Neural Network Runs***<br>
+For the neural network runs, I collected training and validation set accuracies 
+along with MSEs for the testing set so it was comparable to the analysis that I 
+did in Assignment 20.  In my neural networks, since I was dealing with binary
+predictions, I used sigmoid in all my output nodes and I used the binary_crossentropy
+loss function when compiling.
+
+For the **Mixed activation** model, I used a 1000 neuron input layer with 'tanh' 
+activation, 10000 neuron fully connected hidden layer with 'relu' activation, and 
+a singular neuron with 'sigmoid' activation for the output layer.
+
+For the **Nonmixed activation**, I used a 100 neuron input layer with 'relu' 
+activation and a singular neuron with 'sigmoid' avtivation for the output layer.
+
+***Comparison of Models***<br>
+The bolded **Linear** model performed best.
+
+| Model               | MSE Error      | TrainingAccuracy | TestAccuracy   | TestDiff in Accuracy from Training |
+|---------------------|----------------|-------------------|----------------|------------------------------------|
+| **Linear** | **0.2388888889** | **0.7780429594** | **0.7611111111** | **-2.18%** |
+| KNN                 | 0.3333333333   | 0.7661097852      | 0.6666666667   | -12.98%                            |
+| Decision Tree       | 0.2888888889   | 0.768496420       | 0.7111111111   | -7.47%                             |
+| Ridge               | 0.2611111111   | 0.7756563246      | 0.7388888889   | -4.74%                             |
+| SVR                 | 0.25           | 0.7947494033      | 0.75           | -5.63%                             |
+| Mixed activation    | 0.6844276190   | 0.8019093275      | 0.7111111283   | -11.32%                            |
+| Nonmixed activation | 0.5720144510   | 0.7613365054      | 0.6777777672   | -10.98%                            |
+
 **Conclusions**
 
-Overall, the best performing model (low mean squared error) I found was
-the **linear** model which has the lowest mean squared error of .239.
-Mean squared errors as measured for the GridSearchCV run across all
-models are listed below:
+Overall, the best performing model (lowest mean squared error) I found was
+the **linear** model which has the lowest mean squared error of .24.  It
+also had the smallest accuracy differences between the training and test run
+with a training accuracy of 77.8% vs 76.1% for a difference of just 2.2%.
 
-> ***'linear':*** ***0.2388888888888889,*** ***'knn':***
-> ***0.3333333333333333,*** ***'decision':*** ***0.28888888888888886,***
-> ***'ridge':*** ***0.2611111111111111,***
->
-> ***'svr':*** ***0.25***
-
-Using accuracy (highest values) gave consistent results as mean squared
-error, indicating the **linear** model performed the best. Scores across
-all models are listed below
-
-> ***'linear':*** ***0.7611111111111111,*** ***'knn':***
-> ***0.6666666666666666,*** ***'decision':*** ***0.7111111111111111,***
-> ***'ridge':*** ***0.7388888888888889,*** ***'svr':*** ***0.75***
-
-Please note that the above two analyses required rounding the prediction
-up/down to the nearest integer 0 or 1. Using the raw **best_score\_**
-from the GridSearch run, I got the following results
-
-> ***'linear':*** ***-0.16119210778470738,***
+I was initially excited when I added the **Mixed activation** neural network
+model with 1 hidden node as my training accuracy jumped to 80.2% however
+the test accuracy was jut 71.1% indicating overfitting.  Its MSE also jumped to 
+.68.  
 
 <img src="./coef_lin_reg.png"
 style="width:4.88542in;height:2.53125in" />
@@ -142,20 +163,6 @@ style="width:4.88542in;height:2.53125in" />
 
 Using this data, I would conclude that the **ridge** model performed
 best.
-
-||
-||
-||
-||
-||
-||
-
-||
-||
-||
-||
-||
-||
 
 <img src="./feat_importance.png" style="width:6.5in;height:4.30208in" />
 
