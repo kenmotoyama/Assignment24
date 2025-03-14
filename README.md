@@ -1,5 +1,4 @@
 **Problem Statement**<br> 
-**Evaluation**<br>
 **Data Understanding**<br> 
 **Data Preparation**<br> 
 **Methodology**<br>
@@ -142,8 +141,6 @@ The bolded **Linear** model performed best.
 | Mixed activation    | 0.6844276190   | 0.8019093275      | 0.7111111283   | -11.32%                            |
 | Nonmixed activation | 0.5720144510   | 0.7613365054      | 0.6777777672   | -10.98%                            |
 
-**Conclusions**
-
 Overall, the best performing model (lowest mean squared error) I found was
 the **linear** model which has the lowest mean squared error of .24.  It
 also had the smallest accuracy differences between the training and test run
@@ -154,26 +151,50 @@ model with 1 hidden node as my training accuracy jumped to 80.2% however
 the test accuracy was jut 71.1% indicating overfitting.  Its MSE also jumped to 
 .68.  
 
-<img src="./coef_lin_reg.png"
-style="width:4.88542in;height:2.53125in" />
+The updated feature importance adding in the neural networks is highlighted below.
 
-> ***'knn':*** ***-0.16876902451074138,*** ***'decision':***
-> ***-0.163637728632874,*** ***'ridge':*** ***-0.16068009000001543,***
-> ***'svr':*** ***-0.16329726451730922***
+<img src="./updated_feature_importance.jpg" style="width:6.5in;height:4.30208in" />
 
-Using this data, I would conclude that the **ridge** model performed
-best.
+For the linear model specifically, the feature importance is as follows.
 
-<img src="./feat_importance.png" style="width:6.5in;height:4.30208in" />
+<img src="./coef_lin_reg.png" style="width:6.5in;height:4.30208in" />
 
-I also created the confusion matrix for the linear model as shown below
+meaning the top 5 drivers are
+1. The body mass index of the patient (BMI)
+2. The prolactin level of the patient in micro units per milliliter (muU/ml)
+3. The blood glucose level of the patient in micro units per milliliter (mu U/ml)
+4. The age of the patient in years
+5. The insurance status of the patient (positive or negative)
+
+**Conclusions**
+
+I created the confusion matrix for the linear model as shown below
 
 <img src="./conf_matrix.png" style="width:6.5in;height:4.98958in" />
 
 One can see that while the linear model is about 76.1% accurate, there
-are quite a few false positives and false negatives.
+are quite a few false positives and false negatives.  Summary of 
+results below
+
+| True Positive (TP) | True Negative (TN) | False Positive (FP) | False Negative (FN) |
+|--------------------|--------------------|---------------------|---------------------|
+| 37                 | 100                | 14                  | 29                  |
+
+and 
+
+| Metric    | Value          |
+|-----------|----------------|
+| Accuracy  | 0.7611111111   |
+| Precision | 0.7254901961   |
+| Recall    | 0.5606060606   |
+
+In conclusion, referring back to the question “Can you use a patient’s insurance 
+status to predict if they will get sepsis?”, I wouldn't want to share with patients 
+any expectation on outcomes given their insurance status as it seems to have a very 
+low feature importance based on the best performing linear model.  Furthermore, for 
+that model, the accuracy is only at 76.1%.
 
 **Resources**
 
 Link to github repository: ·
-[<u>link</u>](https://github.com/kenmotoyama/Assignment20)
+[<u>link</u>](https://github.com/kenmotoyama/Assignment24)
