@@ -7,11 +7,11 @@
 
 **Problem Statement**
 
-I intend to answer the question ***“Can*** ***you*** ***use*** ***a***
-***patient’s*** ***insurance*** ***status*** ***to*** ***predict***
-***if*** ***they*** ***will*** ***get*** ***sepsis?”*** From the data
-source page “Sepsis is a life-threatening condition that arises when the
-body’s response to infection causes injury to its own tissues and
+For my capstone assignment I intend to answer the question ***“Can*** 
+***you*** ***use*** ***a*** ***patient’s*** ***insurance*** ***status*** 
+***to*** ***predict*** ***if*** ***they*** ***will*** ***get*** ***sepsis?”*** 
+From the data source page “Sepsis is a life-threatening condition that arises 
+when the body’s response to infection causes injury to its own tissues and
 organs.”
 
 For the capstone project, I leaned heavily on the work I had done in 
@@ -30,15 +30,15 @@ terms of techniques, I used the following modeling approaches
 ● SVR()<br>
 ● Neural Network<br>
 
-to create a model that will enable us to predict the proclivity of a
-patient to getting sepsis using a subset of the Kaggle dataset features.
+For each, I created a model that will enable us to predict the proclivity 
+of a patient to getting sepsis using a subset of the Kaggle dataset features.
 This question is important because it could help doctors predict the
 likelihood of a patient(s) getting sepsis so they can proactively focus
 on improving outcomes.
 
 I tried using a convolutional neural network as well to build a model
 but the model failed to complete its run.  This makes some sense given 
-the fact that CNNs traiditionally excel with image data or data that 
+the fact that CNNs traditionally perform well with image data or data that 
 has a grid-like structure and the sepsis dataset is neither.
 
 **Data Understanding**
@@ -89,8 +89,8 @@ Once I had a solid understanding of the underlying dataset and had
 encoded the applicable target field, I went about building the different
 models, namely Linear Regression, K Nearest Neighbor, Decision Trees,
 Ridge, Support Vector Machines (‘rbf’, ‘linear’, and ‘sigmoid’), neural 
-network with various hidden node setup and activations, and a 
-convolutional neural network. 
+network with various hidden node setup and activations, and I attemped to
+create a convolutional neural network. 
 
 ***GridSearchCV Run***<br>
 For the Linear Regression, K Nearest Neighbor, Decision Trees, Ridge, and 
@@ -190,11 +190,13 @@ and
 
 In conclusion, referring back to the question “Can you use a patient’s insurance 
 status to predict if they will get sepsis?”, I wouldn't want to share with patients 
-any expectation on outcomes given their insurance status as it seems to have a very 
-low feature importance based on the best performing linear model.  Furthermore, for 
-that model, the accuracy is only at 76.1%.
+any expectation on outcomes given their insurance status as it has a very 
+low feature importance based on the best performing linear model relative to 
+the body mass index of the patient and the prolactin level of the patient.  
+Furthermore, for the linear model, the accuracy is only at 76.1%.
 
 **Resources**
 
-Link to github repository: ·
-[<u>link</u>](https://github.com/kenmotoyama/Assignment24)
+Link to github repository:<br>
+[<u>Current Capstone Part 2 (Assignment 24)</u>](https://github.com/kenmotoyama/Assignment24)<br>
+[<u>Current Capstone Part 1 (Assignment 20)</u>](https://github.com/kenmotoyama/Assignment20)
