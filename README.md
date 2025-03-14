@@ -40,7 +40,7 @@ on improving outcomes.
 
 **Data Understanding**
 
-<img src="./gnsyuuls.png"
+<img src="./data_info.png"
 style="width:4.17708in;height:3.21875in" />
 
 The kaggle data set had several features that I investigated in my
@@ -133,7 +133,7 @@ from the GridSearch run, I got the following results
 
 > ***'linear':*** ***-0.16119210778470738,***
 
-<img src="./hovgbq11.png"
+<img src="./coef_lin_reg.png"
 style="width:4.88542in;height:2.53125in" />
 
 > ***'knn':*** ***-0.16876902451074138,*** ***'decision':***
