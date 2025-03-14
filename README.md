@@ -1,8 +1,12 @@
-**Problem** **Statement** **1** **Evaluation** **1** **Data**
-**Understanding** **2** **Data** **Preparation** **2** **Methodology**
-**3** **Conclusions** **3** **Resources** **6**
+**Problem Statement**<br> 
+**Evaluation**<br>
+**Data Understanding**<br> 
+**Data Preparation**<br> 
+**Methodology**<br>
+**Conclusions**<br>
+**Resources**<br>
 
-Problem Statement
+**Problem Statement**
 
 I intend to answer the question ***“Can*** ***you*** ***use*** ***a***
 ***patient’s*** ***insurance*** ***status*** ***to*** ***predict***
@@ -11,53 +15,47 @@ source page “Sepsis is a life-threatening condition that arises when the
 body’s response to infection causes injury to its own tissues and
 organs.”
 
+For the capstone project, I leaned heavily on the work I had done in 
+Assignment 20 - Part 1 of the capstone.  I added additional analysis 
+leveraging the neural network concepts taught in the final 3 weeks of 
+the course.
+
 My expected data source is located on Kaggle
 [(<u>link</u>](https://www.kaggle.com/datasets/allanwandia/sepsis)). In
 terms of techniques, I used the following modeling approaches
 
-> ● LinearRegression(),
->
-> ● KNeighborsRegressor(), ● DecisionTreeRegressor(), ● Ridge(),
->
-> ● SVR()
+● LinearRegression()<br>
+● KNeighborsRegressor()<br>
+● DecisionTreeRegressor()<br>
+● Ridge()<br>
+● SVR()<br>
+● Neural Network<br>
+● Convolutional Neural Network<br>
 
 to create a model that will enable us to predict the proclivity of a
-pateint to getting sepsis using a subset of the Kaggle dataset features.
+patient to getting sepsis using a subset of the Kaggle dataset features.
 This question is important because it could help doctors predict the
 likelihood of a patient(s) getting sepsis so they can proactively focus
 on improving outcomes.
 
-Evaluation
-
-||
-||
-||
-||
-||
+**Data Understanding**
 
 <img src="./gnsyuuls.png"
 style="width:4.17708in;height:3.21875in" />
 
-Data Understanding
-
 The kaggle data set had several features that I investigated in my
 analysis. Features included
 
-> ● Patient ID
->
-> ● The pregnancy status of the patient (0 = not pregnant, 1 = pregnant)
-> ● The prolactin level of the patient in micro units per milliliter (mu
-> U/ml) ● The pulse rate of the patient in beats per minute (bpm)
->
-> ● The skin temperature of the patient in degrees Celsius (°C)
->
-> ● The total amount of sweat produced by the patient in milliliters
-> (ml) ● The body mass index of the patient (BMI)
->
-> ● The blood glucose level of the patient in micro units per milliliter
-> (mu U/ml) ● The age of the patient in years
->
-> ● The insurance status of the patient (positive or negative)
+● Patient ID<br>
+● The pregnancy status of the patient (0 = not pregnant, 1 = pregnant)<br>
+● The prolactin level of the patient in micro units per milliliter (muU/ml)<br>
+● The pulse rate of the patient in beats per minute (bpm)<br>
+● The skin temperature of the patient in degrees Celsius (°C)<br>
+● The total amount of sweat produced by the patient in milliliters (ml)<br>
+● The body mass index of the patient (BMI)<br>
+● The blood glucose level of the patient in micro units per milliliter (mu U/ml)<br>
+● The age of the patient in years<br>
+● The insurance status of the patient (positive or negative)<br>
 
 I decided to discard the Patient ID and pregnancy status of the patient.
 The patient id (**ID**) was not essential since I wasn't going to be
@@ -65,7 +63,7 @@ developing a patient specific model and the pregnancy status (**PRG**)
 data column was riddled with anomalies, as it included values that
 weren’t 0 and 1.
 
-Data Preparation
+**Data Preparation**
 
 For some of the **data** **fields**, the data type was “object” so I had
 to engineer some features. Specifically, I had to clean some text
@@ -82,32 +80,33 @@ dropping the **ID**, **PRG**, and **Sepssis** fields.
 I then split the X,y data into a training and testing set to use in
 assessing the different models.
 
-Methodology
+**Methodology**
 
 Once I had a solid understanding of the underlying dataset and had
 encoded the applicable target field, I went about building the different
 models, namely Linear Regression, K Nearest Neighbor, Decision Trees,
-Ridge and Support Vector Machines (‘rbf’, ‘linear’, and ‘sigmoid’). For
+Ridge, Support Vector Machines (‘rbf’, ‘linear’, and ‘sigmoid’), neural 
+network with various topologies, and a convolutional neural network. For
 each run, I used the training data set in conjunction with GridSearchCV
 to find the optimal parameters and stored in 3 dictionaries
 
-> ● the mean squared error as computed using the test set and prediction
-> from the **best_estimator\_** *(Please* *note* *I* *had* *to* *round*
-> *up/down* *the* *probabilities* *to* *get* *a* *binary* *0* *or* *1*
-> *value)* in the r**esults_mseerror_grid** dictionary
->
-> ● the **best_score\_** for each gridsearch run in the
-> **results_bestscore_grid** dictionary
->
-> ● the accuracy (*Please* *note* *I* *had* *to* *round* *up/down* *the*
-> *probabilities* *to* *get* *a* *binary* *0* *or* *1* *value)* in the
-> **results_accuracy_grid** dictionary
+● the mean squared error as computed using the test set and prediction
+from the **best_estimator\_** *(Please* *note* *I* *had* *to* *round*
+*up/down* *the* *probabilities* *to* *get* *a* *binary* *0* *or* *1*
+*value)* in the **results_mseerror_grid** dictionary<br>
+
+● the **best_score\_** for each gridsearch run in the 
+**results_bestscore_grid** dictionary<br>
+
+● the accuracy (*Please* *note* *I* *had* *to* *round* *up/down* *the*
+*probabilities* *to* *get* *a* *binary* *0* *or* *1* *value)* in the
+**results_accuracy_grid** dictionary<br>
 
 After completing the GridSearch, I then did a subsequent run with the
 optimal parameter(s) for each model to measure the importance of each
 feature to the model.
 
-Conclusions
+**Conclusions**
 
 Overall, the best performing model (low mean squared error) I found was
 the **linear** model which has the lowest mean squared error of .239.
@@ -167,7 +166,7 @@ I also created the confusion matrix for the linear model as shown below
 One can see that while the linear model is about 76.1% accurate, there
 are quite a few false positives and false negatives.
 
-Resources
+**Resources**
 
 Link to github repository: ·
 [<u>link</u>](https://github.com/kenmotoyama/Assignment20)
