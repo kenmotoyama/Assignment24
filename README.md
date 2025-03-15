@@ -34,11 +34,11 @@ For each, I created a model that will enable us to predict the proclivity
 of a patient to getting sepsis using a subset of the Kaggle dataset features.
 In this manner, I will not only be able to answer my question on how 
 being insured impacts patient ouctomes, but I will also learn about what 
-other factors might contribute to patient outcomes with regards to sepsis.  
-This is important because it could help doctors predict the likelihood of a 
+other factors might contribute to patient outcomes with regards to sepsis.  This 
+is important because it could help doctors predict the likelihood of a 
 patient(s) getting sepsis so they can proactively focus on improving outcomes.
 
-I tried using a convolutional neural network as well to build a model
+I also tried using a convolutional neural network to build a model
 but the model failed to complete its run.  This makes some sense given 
 the fact that CNNs traditionally perform well with image data or data that 
 has a grid-like structure and the sepsis dataset is neither.
@@ -144,8 +144,8 @@ The bolded **Linear** model performed best.
 | Decision Tree       | 0.2888888889   | 0.768496420       | 0.7111111111   | -7.47%                             |
 | Ridge               | 0.2611111111   | 0.7756563246      | 0.7388888889   | -4.74%                             |
 | SVR                 | 0.25           | 0.7947494033      | 0.75           | -5.63%                             |
-| Mixed activation    | 0.6844276190   | 0.8019093275      | 0.7111111283   | -11.32%                            |
-| Nonmixed activation | 0.5720144510   | 0.7613365054      | 0.6777777672   | -10.98%                            |
+| Mixed activation    | 0.6907750368   | 0.8042959571      | 0.7055555582   | -12.28%                            |
+| Nonmixed activation | 0.5629549623   | 0.7637231350      | 0.7166666389   | -6.16%                             |
 
 Overall, the best performing model (lowest mean squared error) I found was
 the **linear** model which has the lowest mean squared error of .24.  It
@@ -153,9 +153,9 @@ also had the smallest accuracy differences between the training and test run
 with a training accuracy of 77.8% vs 76.1% for a difference of just 2.2%.
 
 I was initially excited when I added the **Mixed activation** neural network
-model with 1 hidden node as my training accuracy jumped to 80.2% however
-the test accuracy was jut 71.1% indicating overfitting.  Its MSE also jumped to 
-.68.  
+model with 1 hidden node as my training accuracy jumped to 80.4% however
+the test accuracy was just 70.6% indicating overfitting.  Its MSE also jumped to 
+.69.  
 
 The updated feature importance adding in the neural networks is highlighted below.
 
