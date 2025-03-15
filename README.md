@@ -1,10 +1,10 @@
 [**Problem Statement**](#Problem-Statement)<br> 
 [**Data Understanding**](#Data-Understanding)<br> 
 [**Data Preparation**](#Data-Preparation)<br> 
-**Methodology**<br>
-**Conclusions**<br>
-**Next steps and Recommendations**<br>
-**Resources**<br>
+[**Methodology**](#Methodology)<br>
+[**Conclusions**](#Conclusions)<br>
+[**Next steps and Recommendations**](#Next-and-Reco)<br>
+[**Resources**](#Resources)<br>
 
 <a id="Problem-Statement">**Problem Statement**</a>
 
@@ -86,7 +86,7 @@ dropping the **ID**, **PRG**, and **Sepssis** fields.
 I then split the X,y data into a training and testing set to use in
 assessing the different models.
 
-**Methodology**
+<a id="Methodology">**Methodology**</a>
 
 Once I had a solid understanding of the underlying dataset and had
 encoded the applicable target field, I went about building the different
@@ -173,7 +173,7 @@ meaning the top 5 drivers are
 4. The age of the patient in years
 5. The insurance status of the patient (positive or negative)
 
-**Conclusions**
+<a id="Conclusions">**Conclusions**</a>
 
 I created the confusion matrix for the linear model as shown below
 
@@ -202,7 +202,7 @@ low feature importance based on the best performing linear model relative to
 the body mass index of the patient and the prolactin level of the patient.  Furthermore, 
 for the linear model, the accuracy is only at 76.1%.<br>
 
-**Next steps and Recommendations**<br>
+<a id="Next-and-Reco">**Next steps and Recommendations**</a><br>
 The original question that I sought to answer at the start of the course was 
 ***“Can*** ***you*** ***use*** ***a*** ***patient’s*** ***income*** ***to*** 
 ***predict*** ***if*** ***they*** ***will*** ***get*** ***sepsis?”***, essentially
@@ -216,7 +216,7 @@ that has average income for a zipcode.  Once I combine these two datasets, then 
 could repeat the analysis to determine the answer to my original question.
 
 
-**Resources**
+<a id="Resources">**Resources**</a><br>
 
 Link to github repository:<br>
 [<u>Current Capstone Part 2 (Assignment 24)</u>](https://github.com/kenmotoyama/Assignment24)<br>
