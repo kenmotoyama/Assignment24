@@ -1,11 +1,12 @@
-**Problem Statement**<br> 
-**Data Understanding**<br> 
-**Data Preparation**<br> 
+[**Problem Statement**](#Problem-Statement)<br> 
+[**Data Understanding**](#Data-Understanding)<br> 
+[**Data Preparation**](#Data-Preparation)<br> 
 **Methodology**<br>
 **Conclusions**<br>
+**Next steps and Recommendations**<br>
 **Resources**<br>
 
-**Problem Statement**
+<a id="Problem-Statement">**Problem Statement**</a>
 
 For my capstone assignment I intend to answer the question ***“Can*** 
 ***you*** ***use*** ***a*** ***patient’s*** ***insurance*** ***status*** 
@@ -43,7 +44,7 @@ but the model failed to complete its run.  This makes some sense given
 the fact that CNNs traditionally perform well with image data or data that 
 has a grid-like structure and the sepsis dataset is neither.
 
-**Data Understanding**
+<a id="Data-Understanding">**Data Understanding**</a>
 
 <img src="./data_info.png"
 style="width:4.17708in;height:3.21875in" />
@@ -68,7 +69,7 @@ developing a patient specific model and the pregnancy status (**PRG**)
 data column was riddled with anomalies, as it included values that
 weren’t 0 and 1.
 
-**Data Preparation**
+<a id="Data-Preparation">**Data Preparation**</a>
 
 For some of the **data** **fields**, the data type was “object” so I had
 to engineer some features. Specifically, I had to clean some text
@@ -199,7 +200,21 @@ status to predict if they will get sepsis?”, I wouldn't want to share with pat
 any expectation on outcomes given their insurance status as it has a very 
 low feature importance based on the best performing linear model relative to 
 the body mass index of the patient and the prolactin level of the patient.  Furthermore, 
-for the linear model, the accuracy is only at 76.1%.
+for the linear model, the accuracy is only at 76.1%.<br>
+
+**Next steps and Recommendations**<br>
+The original question that I sought to answer at the start of the course was 
+***“Can*** ***you*** ***use*** ***a*** ***patient’s*** ***income*** ***to*** 
+***predict*** ***if*** ***they*** ***will*** ***get*** ***sepsis?”***, essentially
+does socioeconomic class impact the likelihood that someone will get sepsis.
+In my analysis for the class capstone, I acknowledge that insurance status doesn't 
+necessarily equate to socioeconomic class so it isn't necessarily a valid analysis to
+answer my original question.  For the purposes of the course though, I was limited
+in the dataset that I could find.  As a next step, it could be worthwhile to see if 
+a sepsis dataset that has patient zip code is available, and then tie it to a dataset 
+that has average income for a zipcode.  Once I combine these two datasets, then we 
+could repeat the analysis to determine the answer to my original question.
+
 
 **Resources**
 
