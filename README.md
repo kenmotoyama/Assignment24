@@ -32,9 +32,11 @@ terms of techniques, I used the following modeling approaches
 
 For each, I created a model that will enable us to predict the proclivity 
 of a patient to getting sepsis using a subset of the Kaggle dataset features.
-This question is important because it could help doctors predict the
-likelihood of a patient(s) getting sepsis so they can proactively focus
-on improving outcomes.
+In this manner, I will not only be able to answer my question on how 
+being insured impacts patient ouctomes, but I will also learn about what 
+other factors might contribute to patient outcomes with regards to sepsis.  
+This is important because it could help doctors predict the likelihood of a 
+patient(s) getting sepsis so they can proactively focus on improving outcomes.
 
 I tried using a convolutional neural network as well to build a model
 but the model failed to complete its run.  This makes some sense given 
@@ -128,6 +130,10 @@ a singular neuron with 'sigmoid' activation for the output layer.
 For the **Nonmixed activation**, I used a 100 neuron input layer with 'relu' 
 activation and a singular neuron with 'sigmoid' avtivation for the output layer.
 
+For both neural networks, I played with the number of neurons and the number of 
+hidden layers and found them to have very minimal impact in my results, but a huge
+impact in my run times.
+
 ***Comparison of Models***<br>
 The bolded **Linear** model performed best.
 
@@ -155,7 +161,7 @@ The updated feature importance adding in the neural networks is highlighted belo
 
 <img src="./updated_feature_importance.jpg" style="width:6.5in;height:4.30208in" />
 
-For the linear model specifically, the feature importance is as follows.
+For the **linear** model specifically, the feature importance is as follows.
 
 <img src="./coef_lin_reg.png" style="width:6.5in;height:4.30208in" />
 
@@ -192,8 +198,8 @@ In conclusion, referring back to the question “Can you use a patient’s insur
 status to predict if they will get sepsis?”, I wouldn't want to share with patients 
 any expectation on outcomes given their insurance status as it has a very 
 low feature importance based on the best performing linear model relative to 
-the body mass index of the patient and the prolactin level of the patient.  
-Furthermore, for the linear model, the accuracy is only at 76.1%.
+the body mass index of the patient and the prolactin level of the patient.  Furthermore, 
+for the linear model, the accuracy is only at 76.1%.
 
 **Resources**
 
